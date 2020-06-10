@@ -2,5 +2,6 @@
     "httpMethod": "GET",
     "pathParameters": {
         "id": "id1"
-    }
+    },
+    "path":"/id1"
 }
