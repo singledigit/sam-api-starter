@@ -2,3 +2,4 @@ node_modules
 .aws-sam
 *.toml
 locals.json
+output

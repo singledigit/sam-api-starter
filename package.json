@@ -11,6 +11,6 @@
         "babel-jest": "22.4.3"
     },
     "scripts": {
-        "test": "jest"
+        "test": "jest --bail --coverage --coverageDirectory=output/coverage/jest"
     }
 }
