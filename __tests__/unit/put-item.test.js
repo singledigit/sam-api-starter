@@ -1,4 +1,4 @@
-const lambda = require('../../put-item.js'); 
+const lambda = require('../../src/put-item.js'); 
 const dynamodb = require('aws-sdk/clients/dynamodb');
 const event = require('../../events/event-post-item');
  

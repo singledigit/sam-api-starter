@@ -1,4 +1,4 @@
-const lambda = require('../../get-all-items.js'); 
+const lambda = require('../../src/get-all-items.js'); 
 const dynamodb = require('aws-sdk/clients/dynamodb');
 const event = require('../../events/event-get-all-items');
 

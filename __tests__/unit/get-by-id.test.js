@@ -1,4 +1,4 @@
-const lambda = require('../../get-by-id.js'); 
+const lambda = require('../../src/get-by-id.js'); 
 const dynamodb = require('aws-sdk/clients/dynamodb');
 const event = require('../../events/event-get-by-id');
  
