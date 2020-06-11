@@ -1,7 +1,7 @@
-const lambda = require('../../src/get-all-items.js'); 
+const lambda = require('../../get-all-items.js'); 
 const dynamodb = require('aws-sdk/clients/dynamodb');
 const event = require('../../events/event-get-all-items');
- 
+
 describe('Test getAllItemsHandler', () => { 
     let scanSpy; 
  
@@ -11,7 +11,7 @@ describe('Test getAllItemsHandler', () => {
  
     afterAll(() => { 
         scanSpy.mockRestore(); 
-    }); 
+    });
  
     it('should return ids', async () => { 
         const items = [{ id: 'id1' }, { id: 'id2' }]; 
@@ -29,4 +29,4 @@ describe('Test getAllItemsHandler', () => {
  
         expect(result).toEqual(expectedResult); 
     }); 
-}); 
+});

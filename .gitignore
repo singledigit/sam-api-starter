@@ -3,3 +3,7 @@ node_modules
 *.toml
 locals.json
 output
+.aws
+.vscode
+
+.DS_Store

@@ -4,17 +4,17 @@ Transform: AWS::Serverless-2016-10-31
 
 Globals:
   Function:
-    # CodeUri: src/
-    Runtime: nodejs12.x
-    MemorySize: 128
-    Timeout: 15
+    Timeout: 3
+    Layers:
+      - arn:aws:lambda:us-west-2:088483494489:layer:LibLayer:1
 
 Resources:
-  getAllItemsFunction:
+  GetAllItemsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/get-all-items.getAllItemsHandler
+      CodeUri: src/
       Runtime: nodejs12.x
+      Handler: get-all-items.getAllItemsHandler
       Description: A simple example includes a HTTP get method to get all items from a DynamoDB table.
       Policies:
         - DynamoDBReadPolicy:
@@ -29,10 +29,12 @@ Resources:
             Path: /
             Method: GET
 
-  getByIdFunction:
+  GetByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/get-by-id.getByIdHandler
+      CodeUri: src/
+      Runtime: nodejs12.x
+      Handler: get-by-id.getByIdHandler
       Description: A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
       Policies:
         - DynamoDBReadPolicy:
@@ -47,10 +49,12 @@ Resources:
             Path: /{id}
             Method: GET
 
-  putItemFunction:
+  PutItemFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/put-item.putItemHandler
+      CodeUri: src/
+      Runtime: nodejs12.x
+      Handler: put-item.putItemHandler
       Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
