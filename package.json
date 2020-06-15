@@ -2,8 +2,9 @@
   "name": "api-starter",
   "version": "0.0.1",
   "devDependencies": {
-    "jest": "^24.7.1",
-    "babel-jest": "22.4.3"
+    "aws-sdk": "^2.697.0",
+    "babel-jest": "22.4.3",
+    "jest": "^24.7.1"
   },
   "scripts": {
     "test": "jest --bail --coverage --coverageDirectory=output/coverage/jest"
