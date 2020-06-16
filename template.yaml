@@ -5,6 +5,11 @@ Transform: AWS::Serverless-2016-10-31
 Globals:
   Function:
     Timeout: 3
+    CodeUri: .
+    Runtime: nodejs12.x
+    Environment:
+      Variables:
+        SAMPLE_TABLE: !Ref SampleTable
     Layers:
       - arn:aws:lambda:us-west-2:088483494489:layer:LibLayer:2
       - !Ref ClientLayer
@@ -20,16 +25,11 @@ Resources:
   GetAllItemsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
-      Runtime: nodejs12.x
       Handler: get-all-items.getAllItemsHandler
       Description: A simple example includes a HTTP get method to get all items from a DynamoDB table.
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref SampleTable
-      Environment:
-        Variables:
-          SAMPLE_TABLE: !Ref SampleTable
       Events:
         Api:
           Type: Api
@@ -40,16 +40,11 @@ Resources:
   GetByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
-      Runtime: nodejs12.x
       Handler: get-by-id.getByIdHandler
       Description: A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref SampleTable
-      Environment:
-        Variables:
-          SAMPLE_TABLE: !Ref SampleTable
       Events:
         Api:
           Type: Api
@@ -60,16 +55,11 @@ Resources:
   PutItemFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
-      Runtime: nodejs12.x
       Handler: put-item.putItemHandler
       Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref SampleTable
-      Environment:
-        Variables:
-          SAMPLE_TABLE: !Ref SampleTable
       Events:
         Api:
           Type: Api
