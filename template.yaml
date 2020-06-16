@@ -6,9 +6,17 @@ Globals:
   Function:
     Timeout: 3
     Layers:
-      - arn:aws:lambda:us-west-2:088483494489:layer:LibLayer:1
+      - arn:aws:lambda:us-west-2:088483494489:layer:LibLayer:2
+      - !Ref ClientLayer
 
 Resources:
+  ClientLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      ContentUri: clients/
+      Description: Node clients
+      RetentionPolicy: Delete
+
   GetAllItemsFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -76,3 +84,7 @@ Outputs:
   WebEndpoint:
     Description: "API Gateway endpoint URL for Prod stage"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+
+  ClientLayerVersion:
+    Description: ClientLayer version
+    Value: !Ref ClientLayer

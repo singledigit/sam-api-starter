@@ -4,6 +4,4 @@ node_modules
 locals.json
 output
 .aws
-.vscode
-
 .DS_Store

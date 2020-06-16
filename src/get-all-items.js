@@ -1,6 +1,7 @@
 const dynamodb = require('aws-sdk/clients/dynamodb');
 const docClient = new dynamodb.DocumentClient();
 const tableName = process.env.SAMPLE_TABLE;
+const rh  = (process.env.TEST_RUN) ? require('../clients/response-handler') : require('/opt/response-handler');
 
 /**
  *
@@ -16,16 +17,15 @@ const tableName = process.env.SAMPLE_TABLE;
  */
 
 exports.getAllItemsHandler = async (event, context) => {
-    var params = {
-        TableName : tableName
-    };
+  var params = {
+    TableName: tableName
+  };
+
+  try {
     const data = await docClient.scan(params).promise();
     const items = data.Items;
-
-    const response = {
-        statusCode: 200,
-        body: JSON.stringify(items)
-    };
-
-    return response;
+    return rh.success(items);
+  } catch (err) {
+    return rh.fail({error: err.errorMessage})
+  }
 }
