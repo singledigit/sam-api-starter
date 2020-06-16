@@ -26,6 +26,6 @@ exports.getAllItemsHandler = async (event, context) => {
     const items = data.Items;
     return rh.success(items);
   } catch (err) {
-    return rh.fail({error: err.errorMessage})
+    return rh.fail(err)
   }
 }

@@ -33,8 +33,6 @@ exports.putItemHandler = async (event) => {
     const result = await docClient.put(params).promise();
     return rh.success(body);
   } catch (err) {
-    return rh.fail({
-      error: err.errorMessage
-    })
+    return rh.fail(err)
   }
 }

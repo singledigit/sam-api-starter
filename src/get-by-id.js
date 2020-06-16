@@ -32,6 +32,6 @@ exports.getByIdHandler = async (event) => {
     const item = data.Item;
     return rh.success(item);
   } catch (err) {
-    return rh.fail({error: err.errorMessage})
+    return rh.fail(err)
   }
 }

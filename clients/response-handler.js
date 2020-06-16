@@ -19,10 +19,7 @@ const handlerModel = (body, headers, code) => {
         response.headers['Access-Control-Allow-Origin'] = "*"
     }
     
-    return new Promise((res, rej) => {
-        if(code === 500) rej(response)
-        else res(response);
-    })
+    return response;
 }
 
 /**

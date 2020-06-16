@@ -7,6 +7,6 @@
     "jest": "^24.7.1"
   },
   "scripts": {
-    "test": "jest --bail --coverage --coverageDirectory=output/coverage/jest"
+    "test": "export TEST_RUN=true && jest --bail --coverage --coverageDirectory=output/coverage/jest && export TEST_RUN=false"
   }
 }
