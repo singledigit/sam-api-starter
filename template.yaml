@@ -25,7 +25,7 @@ Resources:
   GetAllItemsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: get-all-items.getAllItemsHandler
+      Handler: src/get-all-items.getAllItemsHandler
       Description: A simple example includes a HTTP get method to get all items from a DynamoDB table.
       Policies:
         - DynamoDBReadPolicy:
@@ -40,7 +40,7 @@ Resources:
   GetByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: get-by-id.getByIdHandler
+      Handler: src/get-by-id.getByIdHandler
       Description: A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
       Policies:
         - DynamoDBReadPolicy:
@@ -55,7 +55,7 @@ Resources:
   PutItemFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: put-item.putItemHandler
+      Handler: src/put-item.putItemHandler
       Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
